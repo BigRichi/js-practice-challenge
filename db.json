@@ -5,7 +5,7 @@
       "name": "Raffy",
       "nickname": "Rafferty",
       "photo": "pics/raffy.jpg",
-      "likes": 1028
+      "likes": "133 Likes"
     }
   ],
   "animalSightings": [
@@ -15,8 +15,8 @@
       "species": "frog",
       "photo": "pics/frog.jpg",
       "link": "https://youtu.be/Fa_I68L_APY",
-      "description": "I saw this beautiful green frog resting on a leaf!",
-      "likes": 0
+      "description": "Max",
+      "likes": "4 Likes"
     },
     {
       "id": 2,
@@ -24,8 +24,8 @@
       "species": "monkey",
       "photo": "pics/monkey.jpg",
       "link": "https://youtu.be/dy-u0voqixQ",
-      "description": "I was so impressed by the monkey's fantastic leaps!",
-      "likes": 0
+      "description": "Nick",
+      "likes": "5 Likes"
     },
     {
       "id": 3,
@@ -33,7 +33,7 @@
       "species": "centipede",
       "photo": "pics/centipede.JPG",
       "link": "https://youtu.be/vgxv8aAs6UE",
-      "description": "Wow!...what an experience!",
+      "description": "Doug",
       "likes": 0
     },
     {
@@ -42,8 +42,8 @@
       "species": "butterfly",
       "photo": "pics/butterfly.JPG",
       "link": "https://youtu.be/1z1bfyV4cF0",
-      "description": "What a sight!",
-      "likes": 0
+      "description": "Richi",
+      "likes": "3 Likes"
     },
     {
       "travelerId": 1,
