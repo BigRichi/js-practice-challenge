@@ -15,7 +15,7 @@ const animalSightingsForm = document.querySelector('#new-animal-sighting-form')
 const travlerUrl = 'http://localhost:3000/travelers'
 const animalSightingsUrl = 'http://localhost:3000/animalSightings'
 
-/************** Rendering travler on webpage **************/
+/************** Rendering travler on webpage [GET]**************/
 console.log(travlerName.innerText)
 
 fetch(travlerUrl)
@@ -31,18 +31,18 @@ fetch(travlerUrl)
         })
     })
 
-/************** Rendering Animal sightings on webpage **************/
+/************** Rendering Animal sightings on webpage [GET]**************/
 // function renderAllAnimalSightings() {
     fetch(animalSightingsUrl)
         .then(response => response.json())
         .then(animalSightings => {
             animalSightings.forEach(animalSighting => {
-            renderAnimalSignting(animalSighting)
+            renderAnimalSighting(animalSighting)
             })
         })
     // }
 
-function renderAnimalSignting(animalSighting){
+function renderAnimalSighting(animalSighting){
     const outerLi = document.createElement('li')
     outerLi.dataset.id = animalSighting.id
 
@@ -62,7 +62,7 @@ function renderAnimalSignting(animalSighting){
     animalsList.append(outerLi)
 }
 
-/************** Add new Animal Sighting **************/
+/************** Add new Animal Sighting [POST]**************/
 
 animalSightingsForm.addEventListener('submit', function(event){
     event.preventDefault()
@@ -84,12 +84,12 @@ animalSightingsForm.addEventListener('submit', function(event){
         .then(newAnimalSighting => {
             // pessimistic rendering - in this case better because we're
             // wanting the ID when we create the HTML for this card
-            renderAnimalSignting(newAnimalSighting)
+            renderAnimalSighting(newAnimalSighting)
         })
     animalSightingsForm.reset
 })
 
-/************** Add Travler Likes **************/
+/************** Add Travler Likes [PATCH]**************/
 
 likeButton.addEventListener('click', function(event){
     const newTravlerLikes = `${parseInt(travlerLikes.textContent) + 1} Likes`
@@ -106,7 +106,7 @@ likeButton.addEventListener('click', function(event){
             .then(data => travlerLikes.textContent = data.likes)
 })
 
-/************** Animal Sightings event listeners **************/
+/************** Animal Sightings event listeners [DELETE]**************/
 
 animalsList.addEventListener('click',function(event){
     const animalCard = event.target.closest('li')
@@ -145,7 +145,7 @@ animalsList.addEventListener('click',function(event){
             // })
         }
 })
-/************** Edit Animal description **************/
+/************** Edit Animal description [PATCH}**************/
 animalsList.addEventListener('submit',function(event){    
     if (event.target.matches('form')){
         event.preventDefault()
@@ -158,10 +158,10 @@ animalsList.addEventListener('submit',function(event){
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body: JSON.stringify({ description: newDescription })
+            body: JSON.stringify({ description: newDescription })//changes the server/database
         })
             .then(response => response.json())
-            .then(data => animalCard.querySelector('p').textContent = data.description)
+            .then(data => animalCard.querySelector('p').textContent = data.description)//changes DOM 
     }
     animalsList.reset
 })
