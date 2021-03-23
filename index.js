@@ -82,8 +82,6 @@ animalSightingsForm.addEventListener('submit', function(event){
     })
         .then(response => response.json())
         .then(newAnimalSighting => {
-            // pessimistic rendering - in this case better because we're
-            // wanting the ID when we create the HTML for this card
             renderAnimalSighting(newAnimalSighting)
         })
     animalSightingsForm.reset
@@ -145,7 +143,7 @@ animalsList.addEventListener('click',function(event){
             // })
         }
 })
-/************** Edit Animal description [PATCH}**************/
+/************** Edit Animal description [PATCH]**************/
 animalsList.addEventListener('submit',function(event){    
     if (event.target.matches('form')){
         event.preventDefault()
